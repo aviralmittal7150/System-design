@@ -1,0 +1,7 @@
+*.o
+*.dSYM
+movie_booking_system
+test_runner
+.DS_Store
+.vscode/
+.idea/
