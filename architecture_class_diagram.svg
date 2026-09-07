@@ -1,0 +1,563 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Fira+Code:wght@400;500&amp;display=swap');
+      text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .code-text { font-family: 'Fira Code', monospace; }
+      .header-title { font-size: 30px; font-weight: 800; fill: #ffffff; letter-spacing: 0.5px; }
+      .header-sub { font-size: 16px; font-weight: 600; fill: #94a3b8; }
+      .header-tagline { font-size: 16px; font-weight: 600; fill: #cbd5e1; font-style: italic; }
+      .section-title { font-size: 17px; font-weight: 700; fill: #1e1b4b; }
+      .section-sub { font-size: 13px; font-weight: 600; fill: #475569; }
+      .class-name { font-size: 14px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .class-stereo { font-size: 11px; font-style: italic; fill: #334155; text-anchor: middle; }
+      .member-text { font-size: 11.5px; fill: #1e293b; }
+      .multiplicity { font-size: 12px; font-weight: 700; fill: #0f172a; }
+      .rel-label { font-size: 11px; font-weight: 600; fill: #475569; }
+      .note-title { font-size: 12px; font-weight: 700; fill: #78350f; }
+      .note-body { font-size: 11.5px; fill: #92400e; font-weight: 600; }
+    </style>
+
+    <!-- Markers for UML Relationships -->
+    <marker id="comp" markerWidth="14" markerHeight="14" refX="7" refY="7" orient="auto">
+      <polygon points="7,1 13,7 7,13 1,7" fill="#0f172a" stroke="#0f172a" stroke-width="1"/>
+    </marker>
+    <marker id="aggreg" markerWidth="14" markerHeight="14" refX="7" refY="7" orient="auto">
+      <polygon points="7,1 13,7 7,13 1,7" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    </marker>
+    <marker id="inherit" markerWidth="16" markerHeight="16" refX="15" refY="8" orient="auto">
+      <polygon points="1,1 15,8 1,15" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#0f172a"/>
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,1 9,5 0,9" fill="#475569"/>
+    </marker>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1920" height="1200" fill="#f8fafc"/>
+
+  <!-- ========================================== -->
+  <!-- TOP HEADER BAR                             -->
+  <!-- ========================================== -->
+  <rect x="15" y="15" width="1890" height="75" rx="10" fill="#1e293b" filter="url(#shadow)"/>
+  
+  <!-- Popcorn & Ticket Icon graphics -->
+  <g transform="translate(35, 27)">
+    <rect x="0" y="8" width="34" height="38" rx="4" fill="#ef4444"/>
+    <polygon points="0,8 6,0 12,8 18,0 24,8 30,0 34,8" fill="#fef08a"/>
+    <rect x="42" y="12" width="46" height="30" rx="3" fill="#fbbf24" stroke="#ffffff" stroke-dasharray="3 3"/>
+    <text x="65" y="27" font-size="8" font-weight="800" fill="#78350f" text-anchor="middle">CINEMA</text>
+    <text x="65" y="36" font-size="7" font-weight="700" fill="#78350f" text-anchor="middle">TICKET</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="960" y="48" class="header-title" text-anchor="middle">Cinema Ticket Booking System</text>
+  <text x="960" y="72" class="header-sub" text-anchor="middle">UML Class Diagram &amp; System Architecture</text>
+  <text x="1870" y="58" class="header-tagline" text-anchor="end">Book · Pay · Enjoy the Show!</text>
+
+  <!-- ========================================== -->
+  <!-- 1. DOMAIN ENTITY LAYER (LEFT BIG PANEL)    -->
+  <!-- ========================================== -->
+  <rect x="15" y="105" width="1200" height="780" rx="10" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="35" y="133" class="section-title">Domain Entity Layer</text>
+  <text x="35" y="150" class="section-sub">(Core Business Entities &amp; Relationships)</text>
+
+  <!-- CLASS: Cinema -->
+  <g transform="translate(35, 165)" filter="url(#shadow)">
+    <rect width="280" height="155" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="280" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="280" height="6" fill="#dbeafe"/>
+    <text x="140" y="19" class="class-name">Cinema</text>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- cinemaName : string</text>
+    <text x="10" y="60" class="member-text">- screens : vector&lt;Screen&gt;</text>
+    <line x1="0" y1="68" x2="280" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="85" class="member-text">+ Cinema(name : string)</text>
+    <text x="10" y="100" class="member-text">+ getCinemaName() : string</text>
+    <text x="10" y="115" class="member-text">+ addScreen(screen : Screen) : void</text>
+    <text x="10" y="130" class="member-text">+ getScreens() : vector&lt;Screen&gt;&amp;</text>
+    <text x="10" y="145" class="member-text">+ findScreen(screenNum : int) : Screen*</text>
+  </g>
+
+  <!-- CLASS: Screen -->
+  <g transform="translate(415, 165)" filter="url(#shadow)">
+    <rect width="280" height="155" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="280" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="280" height="6" fill="#dbeafe"/>
+    <text x="140" y="19" class="class-name">Screen</text>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- screenNumber : int</text>
+    <text x="10" y="60" class="member-text">- seats : vector&lt;Seat&gt;</text>
+    <line x1="0" y1="68" x2="280" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="85" class="member-text">+ Screen(screenNumber : int)</text>
+    <text x="10" y="100" class="member-text">+ getScreenNumber() : int</text>
+    <text x="10" y="115" class="member-text">+ getScreenName() : string</text>
+    <text x="10" y="130" class="member-text">+ addSeat(seat : Seat) : void</text>
+    <text x="10" y="145" class="member-text">+ getSeats() : const vector&lt;Seat&gt;&amp;</text>
+  </g>
+
+  <!-- CLASS: Seat -->
+  <g transform="translate(795, 165)" filter="url(#shadow)">
+    <rect width="240" height="155" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="240" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="240" height="6" fill="#dbeafe"/>
+    <text x="120" y="19" class="class-name">Seat</text>
+    <line x1="0" y1="28" x2="240" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- seatNumber : string</text>
+    <text x="10" y="60" class="member-text">- seatType : SeatType</text>
+    <line x1="0" y1="68" x2="240" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="85" class="member-text">+ Seat(num:string, type:SeatType)</text>
+    <text x="10" y="100" class="member-text">+ getSeatNumber() : string</text>
+    <text x="10" y="115" class="member-text">+ getSeatType() : SeatType</text>
+    <text x="10" y="130" class="member-text">+ getSeatTypeString() : string</text>
+  </g>
+
+  <!-- ENUM: SeatType -->
+  <g transform="translate(1065, 165)" filter="url(#shadow)">
+    <rect width="130" height="85" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+    <rect width="130" height="26" rx="6" fill="#dcfce7"/>
+    <rect y="20" width="130" height="6" fill="#dcfce7"/>
+    <text x="65" y="13" class="class-stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="65" y="24" class="class-name" fill="#15803d">SeatType</text>
+    <line x1="0" y1="26" x2="130" y2="26" stroke="#16a34a" stroke-width="1"/>
+    <text x="12" y="42" class="member-text font-bold">SILVER</text>
+    <text x="12" y="58" class="member-text font-bold">GOLD</text>
+    <text x="12" y="74" class="member-text font-bold">PLATINUM</text>
+  </g>
+
+  <!-- Base Prices Yellow Card -->
+  <g transform="translate(1065, 260)" filter="url(#shadow)">
+    <rect width="130" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="10" y="17" class="note-title">Base Prices:</text>
+    <text x="10" y="32" class="note-body">SILVER : ₹150</text>
+    <text x="10" y="44" class="note-body">GOLD   : ₹250</text>
+    <text x="10" y="56" class="note-body">PLATINUM: ₹400</text>
+  </g>
+
+  <!-- CLASS: Movie -->
+  <g transform="translate(35, 360)" filter="url(#shadow)">
+    <rect width="280" height="155" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="280" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="280" height="6" fill="#dbeafe"/>
+    <text x="140" y="19" class="class-name">Movie</text>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- title : string</text>
+    <text x="10" y="60" class="member-text">- language : string</text>
+    <text x="10" y="75" class="member-text">- durationMinutes : int</text>
+    <line x1="0" y1="83" x2="280" y2="83" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="100" class="member-text">+ Movie(title, lang, duration)</text>
+    <text x="10" y="115" class="member-text">+ getTitle() : string</text>
+    <text x="10" y="130" class="member-text">+ getLanguage() : string</text>
+    <text x="10" y="145" class="member-text">+ displayInfo() : void</text>
+  </g>
+
+  <!-- CLASS: Show -->
+  <g transform="translate(415, 360)" filter="url(#shadow)">
+    <rect width="280" height="175" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="280" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="280" height="6" fill="#dbeafe"/>
+    <text x="140" y="19" class="class-name">Show</text>
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="44" class="member-text">- showId : int</text>
+    <text x="10" y="58" class="member-text">- movie : const Movie*</text>
+    <text x="10" y="72" class="member-text">- screen : const Screen*</text>
+    <text x="10" y="86" class="member-text">- showSeats : vector&lt;ShowSeat&gt;</text>
+    <line x1="0" y1="92" x2="280" y2="92" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="108" class="member-text">+ Show(id, movie*, screen*, time)</text>
+    <text x="10" y="122" class="member-text">+ getShowId() : int</text>
+    <text x="10" y="136" class="member-text">+ getShowSeats() : vector&lt;ShowSeat&gt;&amp;</text>
+    <text x="10" y="150" class="member-text">+ findShowSeat(num : string) : ShowSeat*</text>
+    <text x="10" y="164" class="member-text">+ displaySeatLayout() : void</text>
+  </g>
+
+  <!-- CLASS: ShowSeat -->
+  <g transform="translate(795, 360)" filter="url(#shadow)">
+    <rect width="240" height="165" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="240" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="240" height="6" fill="#dbeafe"/>
+    <text x="120" y="19" class="class-name">ShowSeat</text>
+    <line x1="0" y1="28" x2="240" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- physicalSeat : const Seat*</text>
+    <text x="10" y="60" class="member-text">- status : SeatStatus</text>
+    <line x1="0" y1="68" x2="240" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="85" class="member-text">+ ShowSeat(physicalSeat : Seat*)</text>
+    <text x="10" y="100" class="member-text">+ isAvailable() : bool</text>
+    <text x="10" y="115" class="member-text">+ book() : bool</text>
+    <text x="10" y="130" class="member-text">+ release() : void</text>
+    <text x="10" y="145" class="member-text">+ getSeatNumber() : string</text>
+    <text x="10" y="160" class="member-text">+ getStatusString() : string</text>
+  </g>
+
+  <!-- ENUM: SeatStatus -->
+  <g transform="translate(1065, 360)" filter="url(#shadow)">
+    <rect width="130" height="75" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+    <rect width="130" height="26" rx="6" fill="#dcfce7"/>
+    <rect y="20" width="130" height="6" fill="#dcfce7"/>
+    <text x="65" y="13" class="class-stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="65" y="24" class="class-name" fill="#15803d">SeatStatus</text>
+    <line x1="0" y1="26" x2="130" y2="26" stroke="#16a34a" stroke-width="1"/>
+    <text x="12" y="44" class="member-text font-bold">AVAILABLE</text>
+    <text x="12" y="62" class="member-text font-bold">BOOKED</text>
+  </g>
+
+  <!-- CLASS: Customer -->
+  <g transform="translate(35, 575)" filter="url(#shadow)">
+    <rect width="240" height="120" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="240" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="240" height="6" fill="#dbeafe"/>
+    <text x="120" y="19" class="class-name">Customer</text>
+    <line x1="0" y1="28" x2="240" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- name : string</text>
+    <text x="10" y="60" class="member-text">- phone : string</text>
+    <line x1="0" y1="68" x2="240" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="85" class="member-text">+ Customer(name, phone)</text>
+    <text x="10" y="100" class="member-text">+ getName() : string</text>
+    <text x="10" y="115" class="member-text">+ getPhone() : string</text>
+  </g>
+
+  <!-- CLASS: Booking -->
+  <g transform="translate(415, 575)" filter="url(#shadow)">
+    <rect width="320" height="280" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="320" height="28" rx="6" fill="#dbeafe"/>
+    <rect y="22" width="320" height="6" fill="#dbeafe"/>
+    <text x="160" y="19" class="class-name">Booking</text>
+    <line x1="0" y1="28" x2="320" y2="28" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="10" y="44" class="member-text">- static nextBookingId : int = 1001</text>
+    <text x="10" y="58" class="member-text">- bookingId : string</text>
+    <text x="10" y="72" class="member-text">- customer : Customer</text>
+    <text x="10" y="86" class="member-text">- show : const Show*</text>
+    <text x="10" y="100" class="member-text">- bookedSeats : vector&lt;ShowSeat*&gt;</text>
+    <text x="10" y="114" class="member-text">- totalAmount : double</text>
+    <text x="10" y="128" class="member-text">- paymentMethod : string</text>
+    <text x="10" y="142" class="member-text">- status : BookingStatus</text>
+    <line x1="0" y1="148" x2="320" y2="148" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="164" class="member-text">+ Booking(cust, show*, seats, amt, method)</text>
+    <text x="10" y="178" class="member-text">+ getBookingId() : string</text>
+    <text x="10" y="192" class="member-text">+ getCustomer() : const Customer&amp;</text>
+    <text x="10" y="206" class="member-text">+ getShow() : const Show*</text>
+    <text x="10" y="220" class="member-text">+ getBookedSeats() : const vector&lt;ShowSeat*&gt;&amp;</text>
+    <text x="10" y="234" class="member-text">+ getTotalAmount() : double</text>
+    <text x="10" y="248" class="member-text">+ getStatusString() : string</text>
+    <text x="10" y="262" class="member-text">+ cancel() : bool</text>
+  </g>
+
+  <!-- ENUM: BookingStatus -->
+  <g transform="translate(850, 600)" filter="url(#shadow)">
+    <rect width="140" height="95" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+    <rect width="140" height="26" rx="6" fill="#dcfce7"/>
+    <rect y="20" width="140" height="6" fill="#dcfce7"/>
+    <text x="70" y="13" class="class-stereo">&lt;&lt;enumeration&gt;&gt;</text>
+    <text x="70" y="24" class="class-name" fill="#15803d">BookingStatus</text>
+    <line x1="0" y1="26" x2="140" y2="26" stroke="#16a34a" stroke-width="1"/>
+    <text x="12" y="44" class="member-text font-bold">CONFIRMED</text>
+    <text x="12" y="60" class="member-text font-bold">CANCELLED</text>
+    <text x="12" y="76" class="member-text font-bold">FAILED</text>
+  </g>
+
+  <!-- Domain Connectors & Relationships -->
+  <!-- Cinema ◆── Screen -->
+  <line x1="315" y1="240" x2="415" y2="240" stroke="#0f172a" stroke-width="2" marker-start="url(#comp)"/>
+  <text x="335" y="232" class="multiplicity">1</text>
+  <text x="385" y="232" class="multiplicity">1..*</text>
+  <text x="360" y="255" class="rel-label" text-anchor="middle">owns</text>
+
+  <!-- Screen ◆── Seat -->
+  <line x1="695" y1="240" x2="795" y2="240" stroke="#0f172a" stroke-width="2" marker-start="url(#comp)"/>
+  <text x="715" y="232" class="multiplicity">1</text>
+  <text x="765" y="232" class="multiplicity">1..*</text>
+  <text x="745" y="255" class="rel-label" text-anchor="middle">owns</text>
+
+  <!-- Show ◇── Screen -->
+  <line x1="555" y1="360" x2="555" y2="320" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="565" y="345" class="multiplicity">1</text>
+
+  <!-- Show ◇── Movie -->
+  <line x1="415" y1="440" x2="315" y2="440" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="395" y="432" class="multiplicity">1..*</text>
+  <text x="330" y="432" class="multiplicity">1</text>
+  <text x="365" y="455" class="rel-label" text-anchor="middle">has</text>
+
+  <!-- Show ◆── ShowSeat -->
+  <line x1="695" y1="440" x2="795" y2="440" stroke="#0f172a" stroke-width="2" marker-start="url(#comp)"/>
+  <text x="715" y="432" class="multiplicity">1</text>
+  <text x="765" y="432" class="multiplicity">1..*</text>
+  <text x="745" y="455" class="rel-label" text-anchor="middle">owns</text>
+
+  <!-- ShowSeat ◇── Seat -->
+  <line x1="915" y1="360" x2="915" y2="320" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="925" y="345" class="multiplicity">1</text>
+
+  <!-- Customer ◇── Booking -->
+  <line x1="275" y1="635" x2="415" y2="635" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="295" y="627" class="multiplicity">1</text>
+  <text x="385" y="627" class="multiplicity">1..*</text>
+  <text x="345" y="650" class="rel-label" text-anchor="middle">makes</text>
+
+  <!-- Booking ◇── Show -->
+  <line x1="555" y1="575" x2="555" y2="535" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="565" y="555" class="multiplicity">1</text>
+
+  <!-- Booking ◇── ShowSeat -->
+  <path d="M 735 635 L 815 635 L 815 525" fill="none" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+  <text x="755" y="627" class="multiplicity">1</text>
+  <text x="825" y="550" class="multiplicity">1..*</text>
+  <text x="785" y="650" class="rel-label">includes</text>
+
+
+  <!-- ========================================== -->
+  <!-- 2. PAYMENT ABSTRACTION LAYER (TOP RIGHT)   -->
+  <!-- ========================================== -->
+  <rect x="1235" y="105" width="670" height="295" rx="10" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1255" y="133" class="section-title">Payment Abstraction Layer</text>
+  <text x="1255" y="150" class="section-sub">(Strategy Pattern · Abstraction · Runtime Polymorphism · OCP · LSP)</text>
+
+  <!-- ABSTRACT CLASS: Payment -->
+  <g transform="translate(1410, 165)" filter="url(#shadow)">
+    <rect width="320" height="95" rx="6" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
+    <rect width="320" height="28" rx="6" fill="#fce7f3"/>
+    <rect y="22" width="320" height="6" fill="#fce7f3"/>
+    <text x="160" y="13" class="class-stereo">&lt;&lt;abstract&gt;&gt;</text>
+    <text x="160" y="24" class="class-name" fill="#be185d">Payment</text>
+    <line x1="0" y1="28" x2="320" y2="28" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="10" y="44" class="member-text"># paymentMethodName : string</text>
+    <line x1="0" y1="50" x2="320" y2="50" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="66" class="member-text">+ virtual ~Payment() = default</text>
+    <text x="10" y="80" class="member-text font-bold">+ virtual pay(amount : double) : bool = 0</text>
+  </g>
+
+  <!-- CLASS: UpiPayment -->
+  <g transform="translate(1255, 290)" filter="url(#shadow)">
+    <rect width="200" height="95" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="200" height="24" rx="6" fill="#dbeafe"/>
+    <text x="100" y="17" class="class-name">UpiPayment</text>
+    <line x1="0" y1="24" x2="200" y2="24" stroke="#3b82f6" stroke-width="1"/>
+    <text x="8" y="39" class="member-text">- upiId : string</text>
+    <line x1="0" y1="45" x2="200" y2="45" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="8" y="60" class="member-text">+ UpiPayment(upiId)</text>
+    <text x="8" y="75" class="member-text font-bold">+ pay(amount) : bool</text>
+    <text x="8" y="90" class="member-text">+ getUpiId() : string</text>
+  </g>
+
+  <!-- CLASS: CardPayment -->
+  <g transform="translate(1470, 290)" filter="url(#shadow)">
+    <rect width="205" height="95" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="205" height="24" rx="6" fill="#dbeafe"/>
+    <text x="102" y="17" class="class-name">CardPayment</text>
+    <line x1="0" y1="24" x2="205" y2="24" stroke="#3b82f6" stroke-width="1"/>
+    <text x="8" y="39" class="member-text">- cardNumber, name, cvv</text>
+    <line x1="0" y1="45" x2="205" y2="45" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="8" y="60" class="member-text">+ CardPayment(no, name, cvv)</text>
+    <text x="8" y="75" class="member-text font-bold">+ pay(amount) : bool</text>
+    <text x="8" y="90" class="member-text">+ getCardMasked() : string</text>
+  </g>
+
+  <!-- CLASS: CashPayment -->
+  <g transform="translate(1690, 290)" filter="url(#shadow)">
+    <rect width="195" height="95" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="195" height="24" rx="6" fill="#dbeafe"/>
+    <text x="97" y="17" class="class-name">CashPayment</text>
+    <line x1="0" y1="24" x2="195" y2="24" stroke="#3b82f6" stroke-width="1"/>
+    <text x="8" y="39" class="member-text">- amountTendered : double</text>
+    <line x1="0" y1="45" x2="195" y2="45" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="8" y="60" class="member-text">+ CashPayment(tendered)</text>
+    <text x="8" y="75" class="member-text font-bold">+ pay(amount) : bool</text>
+    <text x="8" y="90" class="member-text">+ getTendered() : double</text>
+  </g>
+
+  <!-- Inheritance Tree Arrows -->
+  <path d="M 1355 290 L 1355 275 L 1570 275 L 1570 260" fill="none" stroke="#0f172a" stroke-width="1.5" marker-end="url(#inherit)"/>
+  <path d="M 1570 290 L 1570 260" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+  <path d="M 1785 290 L 1785 275 L 1570 275" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+
+
+  <!-- ========================================== -->
+  <!-- 3. SERVICE / APPLICATION LAYER (MID RIGHT) -->
+  <!-- ========================================== -->
+  <rect x="1235" y="415" width="670" height="345" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1255" y="443" class="section-title">Service / Application Layer</text>
+  <text x="1255" y="460" class="section-sub">(Business Logic, Workflow Orchestration &amp; Utilities)</text>
+
+  <!-- CLASS: BookingService -->
+  <g transform="translate(1255, 475)" filter="url(#shadow)">
+    <rect width="365" height="265" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+    <rect width="365" height="28" rx="6" fill="#dcfce7"/>
+    <rect y="22" width="365" height="6" fill="#dcfce7"/>
+    <text x="182" y="19" class="class-name" fill="#15803d">BookingService</text>
+    <line x1="0" y1="28" x2="365" y2="28" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="10" y="45" class="member-text">- priceCalculator : PriceCalculator</text>
+    <text x="10" y="60" class="member-text">- ticketPrinter : TicketPrinter</text>
+    <text x="10" y="75" class="member-text">- bookings : vector&lt;unique_ptr&lt;Booking&gt;&gt;</text>
+    <line x1="0" y1="83" x2="365" y2="83" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="100" class="member-text">+ BookingService()</text>
+    <text x="10" y="118" class="member-text font-bold">+ createBooking(Customer, Show*, seats,</text>
+    <text x="25" y="133" class="member-text font-bold">  Payment* payment) : Booking*</text>
+    <text x="10" y="152" class="member-text">+ cancelBooking(bookingId : string) : bool</text>
+    <text x="10" y="170" class="member-text">+ findBooking(bookingId : string) : const Booking*</text>
+    <text x="10" y="188" class="member-text">+ displayAllBookings() : void</text>
+    <text x="10" y="206" class="member-text">+ getTicketPrinter() : const TicketPrinter&amp;</text>
+    <text x="10" y="224" class="member-text">+ getPriceCalculator() : const PriceCalculator&amp;</text>
+  </g>
+
+  <!-- CLASS: PriceCalculator -->
+  <g transform="translate(1640, 475)" filter="url(#shadow)">
+    <rect width="245" height="120" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+    <rect width="245" height="28" rx="6" fill="#ccfbf1"/>
+    <rect y="22" width="245" height="6" fill="#ccfbf1"/>
+    <text x="122" y="19" class="class-name" fill="#0f766e">PriceCalculator</text>
+    <line x1="0" y1="28" x2="245" y2="28" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="8" y="44" class="member-text font-bold">+ static calculatePrice(type) : double</text>
+    <text x="8" y="60" class="member-text font-bold">+ static calculatePrice(type, qty) : double</text>
+    <text x="8" y="76" class="member-text font-bold">+ static calculatePrice(seats) : double</text>
+    <line x1="0" y1="84" x2="245" y2="84" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="8" y="102" class="member-text font-semibold fill-teal-800">Overloaded (Compile-Time Polymorphism)</text>
+  </g>
+
+  <!-- CLASS: TicketPrinter -->
+  <g transform="translate(1640, 615)" filter="url(#shadow)">
+    <rect width="245" height="125" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+    <rect width="245" height="28" rx="6" fill="#ccfbf1"/>
+    <rect y="22" width="245" height="6" fill="#ccfbf1"/>
+    <text x="122" y="19" class="class-name" fill="#0f766e">TicketPrinter</text>
+    <line x1="0" y1="28" x2="245" y2="28" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="8" y="45" class="member-text font-bold">+ printTicket(booking) : void</text>
+    <text x="8" y="63" class="member-text font-bold">+ printTicket(booking, ostream&amp;) : void</text>
+    <text x="8" y="81" class="member-text font-bold">+ printSummary(booking) : void</text>
+    <line x1="0" y1="89" x2="245" y2="89" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="8" y="107" class="member-text font-semibold fill-teal-800">Single Responsibility (SRP Formatting)</text>
+  </g>
+
+  <!-- Service Dependency Arrows -->
+  <line x1="1620" y1="535" x2="1640" y2="535" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-dashed)"/>
+  <line x1="1620" y1="675" x2="1640" y2="675" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-dashed)"/>
+
+
+  <!-- ========================================== -->
+  <!-- 4. BOTTOM SECTION: 4 MODULAR PANELS        -->
+  <!-- ========================================== -->
+
+  <!-- 4.1 PRESENTATION LAYER (BOTTOM LEFT) -->
+  <rect x="15" y="900" width="550" height="275" rx="10" fill="#fefce8" stroke="#fef08a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="35" y="928" class="section-title">Presentation Layer (User Interface)</text>
+  
+  <g transform="translate(35, 945)">
+    <!-- main.cpp Box -->
+    <rect width="180" height="110" rx="6" fill="#ffffff" stroke="#ca8a04" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="180" height="24" rx="6" fill="#fef08a"/>
+    <text x="90" y="17" class="class-name" fill="#854d0e">CinemaApp / main.cpp</text>
+    <text x="10" y="42" class="member-text">• Display console menu</text>
+    <text x="10" y="58" class="member-text">• Take user input</text>
+    <text x="10" y="74" class="member-text">• Robust input validation</text>
+    <text x="10" y="90" class="member-text">• Invoke BookingService</text>
+
+    <!-- Arrow -->
+    <line x1="180" y1="55" x2="260" y2="55" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="220" y="47" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">Uses</text>
+    <text x="220" y="72" font-size="9.5" fill="#64748b" text-anchor="middle">(User Commands)</text>
+
+    <!-- BookingService mini box -->
+    <rect x="260" y="25" width="160" height="60" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="340" y="50" class="class-name" fill="#15803d">BookingService</text>
+    <text x="340" y="68" font-size="10" fill="#166534" text-anchor="middle">(Workflow Controller)</text>
+
+    <!-- Output Arrow -->
+    <line x1="340" y1="85" x2="340" y2="155" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="350" y="120" font-size="11" font-weight="700" fill="#0f172a">Output</text>
+    <text x="350" y="135" font-size="9.5" fill="#64748b">(Tickets / Receipt / Errors)</text>
+
+    <!-- Ticket output card -->
+    <rect x="430" y="95" width="105" height="115" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-dasharray="3 3"/>
+    <text x="482" y="112" font-size="9" font-weight="800" fill="#0f172a" text-anchor="middle">=== TICKET ===</text>
+    <text x="438" y="127" font-size="8" fill="#334155">ID: B1001</text>
+    <text x="438" y="140" font-size="8" fill="#334155">Interstellar</text>
+    <text x="438" y="153" font-size="8" fill="#334155">Screen 1 - 7:30PM</text>
+    <text x="438" y="166" font-size="8" fill="#334155">A1 (SILVER)</text>
+    <text x="438" y="179" font-size="8" font-weight="700" fill="#0f172a">Total: ₹150.00</text>
+    <text x="438" y="192" font-size="8" font-weight="700" fill="#16a34a">CONFIRMED</text>
+  </g>
+
+  <!-- 4.2 SYSTEM ARCHITECTURE (LAYERED VIEW) -->
+  <rect x="580" y="900" width="370" height="275" rx="10" fill="#f0f9ff" stroke="#bae6fd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="928" class="section-title">System Architecture (Layered)</text>
+
+  <g transform="translate(600, 945)">
+    <!-- Layer 1 -->
+    <rect width="330" height="42" rx="4" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="165" y="18" font-size="11.5" font-weight="700" fill="#713f12" text-anchor="middle">Presentation Layer</text>
+    <text x="165" y="32" font-size="9.5" fill="#854d0e" text-anchor="middle">(main.cpp · CinemaApp · Console Menu)</text>
+
+    <!-- Layer 2 -->
+    <rect y="50" width="330" height="42" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="165" y="68" font-size="11.5" font-weight="700" fill="#14532d" text-anchor="middle">Application / Service Layer</text>
+    <text x="165" y="82" font-size="9.5" fill="#15803d" text-anchor="middle">(BookingService · PriceCalculator · TicketPrinter)</text>
+
+    <!-- Layer 3 -->
+    <rect y="100" width="330" height="46" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="165" y="118" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Domain Entity Layer</text>
+    <text x="165" y="134" font-size="9" fill="#1e40af" text-anchor="middle">(Cinema, Screen, Seat, Movie, Show, ShowSeat, Booking)</text>
+
+    <!-- Layer 4 -->
+    <rect y="154" width="330" height="42" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+    <text x="165" y="172" font-size="11.5" font-weight="700" fill="#831843" text-anchor="middle">Payment Abstraction Layer</text>
+    <text x="165" y="186" font-size="9.5" fill="#9d174d" text-anchor="middle">(Payment Interface · Upi · Card · Cash)</text>
+  </g>
+
+  <!-- 4.3 RELATIONSHIP LEGEND -->
+  <rect x="965" y="900" width="440" height="275" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="985" y="928" class="section-title">Relationship Legend</text>
+
+  <g transform="translate(985, 948)">
+    <!-- Composition -->
+    <line x1="10" y1="20" x2="70" y2="20" stroke="#0f172a" stroke-width="2" marker-start="url(#comp)"/>
+    <text x="90" y="24" font-size="12" font-weight="700" fill="#0f172a">Composition</text>
+    <text x="180" y="24" font-size="11" fill="#64748b">(Strong ownership, tied lifetime)</text>
+
+    <!-- Aggregation -->
+    <line x1="10" y1="52" x2="70" y2="52" stroke="#0f172a" stroke-width="2" marker-start="url(#aggreg)"/>
+    <text x="90" y="56" font-size="12" font-weight="700" fill="#0f172a">Aggregation</text>
+    <text x="180" y="56" font-size="11" fill="#64748b">(Shared reference, independent lifetime)</text>
+
+    <!-- Association -->
+    <line x1="10" y1="84" x2="70" y2="84" stroke="#0f172a" stroke-width="2"/>
+    <text x="90" y="88" font-size="12" font-weight="700" fill="#0f172a">Association</text>
+    <text x="180" y="88" font-size="11" fill="#64748b">(Peer structural relationship)</text>
+
+    <!-- Inheritance -->
+    <line x1="10" y1="116" x2="70" y2="116" stroke="#0f172a" stroke-width="2" marker-end="url(#inherit)"/>
+    <text x="90" y="120" font-size="12" font-weight="700" fill="#0f172a">Inheritance</text>
+    <text x="180" y="120" font-size="11" fill="#64748b">(Generalization / Is-A relationship)</text>
+
+    <!-- Dependency -->
+    <line x1="10" y1="148" x2="70" y2="148" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-dashed)"/>
+    <text x="90" y="152" font-size="12" font-weight="700" fill="#0f172a">Dependency</text>
+    <text x="180" y="152" font-size="11" fill="#64748b">(Uses / temporary parameter)</text>
+
+    <!-- Multiplicities -->
+    <text x="10" y="186" font-size="13" font-weight="800" fill="#0f172a">1 , 1..*</text>
+    <text x="90" y="186" font-size="12" font-weight="700" fill="#0f172a">Multiplicity</text>
+    <text x="180" y="186" font-size="11" fill="#64748b">(One, One-to-many cardinality)</text>
+  </g>
+
+  <!-- 4.4 KEY FEATURES & TAGLINE -->
+  <rect x="1420" y="900" width="485" height="275" rx="10" fill="#fef2f2" stroke="#fecaca" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1440" y="928" class="section-title" fill="#991b1b">Key System Design Highlights</text>
+
+  <g transform="translate(1440, 945)">
+    <text x="10" y="20" class="member-text font-bold">• 8 Core Features Fully Implemented &amp; Tested</text>
+    <text x="10" y="38" class="member-text font-bold">• Runtime &amp; Compile-Time Polymorphism</text>
+    <text x="10" y="56" class="member-text font-bold">• SOLID Principles (SRP, OCP, LSP, ISP, DIP)</text>
+    <text x="10" y="74" class="member-text font-bold">• Robust Atomic Rollback on Payment Failure</text>
+    <text x="10" y="92" class="member-text font-bold">• Booking ID auto-generation (static member)</text>
+    <text x="10" y="110" class="member-text font-bold">• Clean C++17 Modular Separation (One Class/File)</text>
+    
+    <rect y="130" width="445" height="55" rx="6" fill="#fee2e2" stroke="#f87171" stroke-width="1"/>
+    <text x="222" y="162" font-size="18" font-weight="800" fill="#991b1b" text-anchor="middle" font-style="italic">"Great Movies. Happier People."</text>
+  </g>
+</svg>
